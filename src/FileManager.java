@@ -16,7 +16,7 @@ public class FileManager {
 
     private FileManager() {
         try {
-            Files.walk(Paths.get("./data"))
+            Files.walk(Paths.get("./data/5"))
                     .filter(Files::isRegularFile)
                     .forEach((Path path) -> { files.add(path.toFile()); });
         } catch (IOException e) {

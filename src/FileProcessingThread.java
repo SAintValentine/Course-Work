@@ -41,6 +41,16 @@ public class FileProcessingThread extends Thread {
                 }
             }
         }
+
+        while (!processing.isEmpty()) {
+            for (int j = processing.size() - 1; j >= 0; j--) {
+                Element term = processing.get(j);
+
+                if (Collection.sharedInstance.addToRes(term)) {
+                    processing.remove(term);
+                }
+            }
+        }
     }
 
     @Override

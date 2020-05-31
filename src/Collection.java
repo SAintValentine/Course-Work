@@ -1,5 +1,3 @@
-import com.sun.istack.internal.Nullable;
-
 import java.util.*;
 
 public class Collection {
@@ -7,7 +5,7 @@ public class Collection {
     public static Collection sharedInstance = new Collection();
 
     private HashMap<String, ArrayList<Element>> res = new HashMap<>();
-    private Set<String> queue = new HashSet<>();
+    private Set<String> queue = Collections.synchronizedSet(new HashSet<>());
 
     private Collection() { }
 
